@@ -4,8 +4,6 @@ This is an IPTV-Server that I coded in NodeJS using the HLS-Protocol.
 
 <br />
 
----
-
 ## Installation
 
 ### Clone the repository
@@ -27,15 +25,11 @@ CREATE TABLE `keys` (`key` varchar(255) NOT NULL);
 ```
 
 
----
-
 ## Configuration
 
 Please configure the settings in the `.env` file
 
 <br />
-
----
 
 ## Run the server
 
@@ -52,8 +46,6 @@ npm run dev
 
 <br />
 
----
-
 ## Use
 
 ### Master Playlist: `http://127.0.0.1:3360/iptv/<KEY>/playlist.m3u8`
@@ -67,8 +59,6 @@ If the Channel does not exisit then the server will respond with a 404 Channel w
 Do **NOT** delete the segments folder manually in the channels folders.
 
 <br />
-
----
 
 ## Create a Channel
 
@@ -92,17 +82,21 @@ You can create your own channel by creating a new folder in the `/iptv` director
 
 <br />
 
----
-
 ## API
 
 ### Usage `http://127.0.0.1/api/<API_KEY>/<PARAMETERS>`
 <br />
 
-### **Parameters:**
-### Reload Server: `reload`
-### Restart Server: `restart`
-### Show all keys: `key`
-### Show all Channels: `channel?action=list`
-### Create Channel: `channel?action=add&id=<CHANNEL_ID>&name=<CHANNEL_NAME>&group=<CHANNEL_GROUP>`
-### CleanUp Channel: `channel?action=cleanup` | `channel?action=cleanup&id=<CHANNEL_ID>`
+### **_Parameters:_**
+
+**Reload Server: `reload`**
+
+**Restart Server: `restart`**
+
+**Show all keys: `key`**
+
+**Show all Channels: `channel?action=list`**
+
+**Create Channel: `channel?action=add&id=<CHANNEL_ID>&name=<CHANNEL_NAME>&group=<CHANNEL_GROUP>`**
+
+**CleanUp Channel: `channel?action=cleanup` | `channel?action=cleanup&id=<CHANNEL_ID>`**
