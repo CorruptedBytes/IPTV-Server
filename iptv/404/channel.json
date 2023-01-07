@@ -1,0 +1,8 @@
+{
+	"name": "SYS_CHANNEL_404",
+	"group": "SYSTEM",
+	"requireKey": false,
+	"listed": false,
+	"inputType": "STATIC",
+	"input": ""
+}

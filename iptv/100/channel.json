@@ -1,0 +1,8 @@
+{
+	"name": "Example Channel",
+	"group": "Test",
+	"requireKey": true,
+	"listed": true,
+	"inputType": "DEVICE",
+	"input": "OBS Virtual Camera"
+}
