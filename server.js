@@ -59,17 +59,20 @@ const registerHLSRoute = (app) => {
     app.get('/iptv/:key/:id/index.m3u8', (req, res) => {
         if (channel.isChannel(req.params.id)) {
             if (keys.includes(req.params.key) || channel.getConfig(req.params.id).requireKey === false) {
+                res.setHeader('access-control-allow-origin', "*");
                 res.setHeader('Content-type', "application/octet-stream");
                 res.setHeader('Content-disposition', 'attachment; filename=index.m3u8');
                 res.status(200).send(getM3U8(req.params.key, req.params.id));
                 res.end();
             } else {
+                res.setHeader('access-control-allow-origin', "*");
                 res.setHeader('Content-type', "application/octet-stream");
                 res.setHeader('Content-disposition', 'attachment; filename=index.m3u8');
                 res.status(200).send(getM3U8(req.params.key, 403));
                 res.end();
             }
         } else {
+                res.setHeader('access-control-allow-origin', "*");
                 res.setHeader('Content-type', "application/octet-stream");
                 res.setHeader('Content-disposition', 'attachment; filename=index.m3u8');
                 res.status(200).send(getM3U8(req.params.key, 404));
@@ -80,11 +83,13 @@ const registerHLSRoute = (app) => {
     /* Master M3U8 Playlist File */
     app.get('/iptv/:key/playlist.m3u8', (req, res) => {
         if (keys.includes(req.params.key)) {
+            res.setHeader('access-control-allow-origin', "*");
             res.setHeader('Content-type', "application/octet-stream");
             res.setHeader('Content-disposition', 'attachment; filename=playlist.m3u8');
             res.status(200).send(getMasterPlaylist(req.params.key));
             res.end();
         } else {
+            res.setHeader('access-control-allow-origin', "*");
             res.setHeader('Content-type', "application/octet-stream");
             res.setHeader('Content-disposition', 'attachment; filename=index.m3u8');
             res.status(200).send(getM3U8(req.params.key, 403));
@@ -96,6 +101,7 @@ const registerHLSRoute = (app) => {
     app.get('/iptv/:key/:id/icon.png', (req, res) => {
         if (keys.includes(req.params.key)) {
             if (channel.isChannel(req.params.id)) {
+                res.setHeader('access-control-allow-origin', "*");
                 res.status(200).sendFile(path.resolve(index.iptv_directory + "/" + req.params.id + "/icon.png"));
             } else {
                 res.status(204).send("");
@@ -111,6 +117,7 @@ const registerHLSRoute = (app) => {
             if (keys.includes(req.params.key) || channel.getConfig(req.params.id).requireKey === false) {
                 if (req.query.hash == getHash(req.params.key, req.params.id, req.params.segment)) {
                     if (fs.existsSync(path.resolve(index.iptv_directory + "/" + req.params.id + "/segments/" + req.params.segment))) {
+                        res.setHeader('access-control-allow-origin', "*");
                         res.status(200).sendFile(index.iptv_directory + "/" + req.params.id + "/segments/" + req.params.segment, { root: __dirname });
                     } else {
                         res.status(404).send("404 Not Found");
