@@ -60,7 +60,7 @@ const stream = (id, input_type, input) => {
                 break;
 
             case "linux":
-                command.inputOptions(['-f decklink']); // decklink on Linux
+                command.inputOptions(['-f v4l2']); // v4l2 on Linux
                 break;
 
             case "darwin":
