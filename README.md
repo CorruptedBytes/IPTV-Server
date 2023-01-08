@@ -77,8 +77,32 @@ You can create your own channel by creating a new folder in the `/iptv` director
 }
 ```
 
-### Input Types: `FILE, DEVICE, OTHER, STATIC`
-### Channel Icon: `icon.png - Should be 48x48px`
+**Input Types: `FILE, DEVICE, OTHER, STATIC`**
+
+**Channel Icon: `icon.png - Should be 48x48px`**
+
+
+### To list all input devices enter this command in the command line:
+
+**Windows:**
+
+```bash
+ffmpeg -f dshow -list_devices true -i ""
+```
+
+
+**Linux:**
+
+```bash
+ffmpeg -f v4l2 -list_devices true -i ""
+```
+
+
+**MacOS:**
+
+```bash
+ffmpeg -f avfoundation -list_devices true -i ""
+```
 
 <br />
 
