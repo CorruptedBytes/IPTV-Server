@@ -108,7 +108,7 @@ ffmpeg -f avfoundation -list_devices true -i ""
 
 ## API
 
-### Usage `http://127.0.0.1/api/<API_KEY>/<PARAMETERS>`
+### Usage `http://127.0.0.1:3360/api/<API_KEY>/<PARAMETERS>`
 <br />
 
 ### **_Parameters:_**
